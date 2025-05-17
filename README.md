@@ -34,7 +34,7 @@ docker-compose up --build
 docker-compose down
 ```
 
-### Heroku usage
+### Herokuusage
 Goof requires attaching a MongoLab service to be deployed as a Heroku app. 
 That sets up the MONGOLAB_URI env var so everything after should just work. 
 
@@ -42,7 +42,7 @@ That sets up the MONGOLAB_URI env var so everything after should just work.
 Goof requires attaching a MongoLab service and naming it "goof-mongo" to be deployed on CloudFoundry. 
 The code explicitly looks for credentials to that service. 
 
-### Cleanup
+### Clea up
 To bulk delete the current list of TODO items from the DB run:
 ```bash
 npm run cleanup
@@ -74,7 +74,7 @@ Here are the exploitable vulnerable packages:
 * Security misconfiguration exposes server information 
 * Insecure protocol (HTTP) communication 
 
-#### Code injection
+#### Code Injection
 
 The page at `/account_details` is rendered as an Handlebars view.
 
