@@ -57,7 +57,7 @@ The `exploits/` directory includes a series of steps to demonstrate each one.
 
 ### Vulnerabilities in open source dependencies
 
-Here are the exploitable vulnerable packages:
+Here are the exploitable, vulnerable packages:
 - [Mongoose - Buffer Memory Exposure](https://snyk.io/vuln/npm:mongoose:20160116) - requires a version <= Node.js 8. For the exploit demo purposes, one can update the Dockerfile `node` base image to use `FROM node:6-stretch`.
 - [st - Directory Traversal](https://snyk.io/vuln/npm:st:20140206)
 - [ms - ReDoS](https://snyk.io/vuln/npm:ms:20151024)
@@ -80,7 +80,7 @@ The page at `/account_details` is rendered as a Handlebars view.
 
 The same view is used for both the GET request, which shows the account details, as well as the form itself for a POST request which updates the account details. A so-called Server-side Rendering.
 
-The form is completely functional. The way it works is, it receives the profile information from the `req.body` and passes it, as-is to the template. This however means, that the attacker is able to control a variable that flows directly from the request into the view template library.
+The form is completely functional. The way it works is, it receives the profile information from the `req.body` and passes it, as-is to the template. This however, means, that the attacker is able to control a variable that flows directly from the request into the view template library.
 
 You'd think that what's the worst that can happen because we use a validation to confirm the expected input, however the validation doesn't take into account a new field that can be added to the object, such as `layout`, which when passed to a template language, could lead to Local File Inclusion (Path Traversal) vulnerabilities. Here is a proof-of-concept showing it:
 
@@ -107,7 +107,7 @@ curl -X 'POST' -H 'Content-Type: application/json' --data-binary "{\"email\": \"
 
 #### NoSQL injection
 
-A POST request to `/login` will allow for authentication and signing-in to the system as an administrator user.
+A POST request to `/login` will allow for authentication and signing in to the system as an administrator user.
 It works by exposing `loginHandler` as a controller in `routes/index.js` and uses a MongoDB database and the `User.find()` query to look up the user's details (email as a username and password). One issue is that it indeed stores passwords in plaintext and not hashing them. However, there are other issues in play here.
 
 
