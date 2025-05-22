@@ -96,7 +96,7 @@ Actually, there's even another vulnerability in this code.
 The `validator` library that we use has several known regular expression denial of service vulnerabilities. One of them is associated with the email regex, which, if validated with the `{allow_display_name: true}` option, then we can trigger a denial of service for this route:
 
 ```sh
-curl -X 'POST' -H 'Content-Type: application/json' --data-binary "{\"email\": \"`seq -s "" -f "<" 100000`\"}" 'http://localhost:3001/account_details'
+curl -X 'POST' -H 'Content-Type: application/json' --data-binary "{\"email\": \"`seq-s"" -f "<" 100000`\"}" 'http://localhost:3001/account_details'
 ```
 
 The `validator.rtrim()` sanitizer is also vulnerable, and we can use this to create a similar denial of service attack:
