@@ -170,7 +170,7 @@ module.exports = {
 And then require the configuration file and use it to initialize the session.
 However, that still maintains the secret information inside another file, and Snyk Code will warn you about it.
 
-Another case we can discuss here in session management, is that the cookie setting is initialized with `secure: true` which means it will only be transmitted over HTTPS connections. However, there's no `httpOnly` flag set to true, which means that the default false value of it makes the cookie accessible via JavaScript. Snyk Code highlights this potential security misconfiguration so we can fix it. We can note that Snyk Code shows this as a quality information, and not as a security error.
+Another case we can discuss here in session management is that the cookie setting is initialized with `secure: true` which means it will only be transmitted over HTTPS connections. However, there's no `httpOnly` flag set to true, which means that the default false value of it makes the cookie accessible via JavaScript. Snyk Code highlights this potential security misconfiguration so we can fix it. We can note that Snyk Code shows this as a quality information, and not as a security error.
 
 Snyk Code will also find hardcoded secrets in source code that isn't part of the application logic, such as `tests/` or `examples/` folders. We have a case of that in this application with the `tests/authentication.component.spec.js` file. In the finding, Snyk Code will tag it as `InTest`, `Tests`, or `Mock`, which help us easily triage it and indeed ignore this finding as it isn't actually a case of information exposure.
 
@@ -192,7 +192,7 @@ snyk monitor --docker node:6-stretch
 
 Snyk provides the ability to monitor application runtime behavior and detect an invocation of a function is known to be vulnerable and used within open source dependencies that the application makes use of.
 
-The agent is installed and initialized in [app.js](./app.js#L5).
+The agent is installed and initialized in [app.js](./app js#L5).
 
 For the agent to report back to your snyk account on the vulnerabilities it detected it needs to know which project on Snyk to associate with the monitoring. Due to that, we need to provide it with the project id through an environment variable `SNYK_PROJECT_ID`
 
@@ -203,12 +203,12 @@ SNYK_PROJECT_ID=<PROJECT_ID> npm start
 
 ** The app will continue to work normally even if it's not provided a project id
 
-## Fixing the issues by student
+## Fixing the issues by the student
 To find these flaws in this application (and in your own apps), run:
 ```
 npm install -g snyk
 snyk wizard
 ```
 
-In this application, the default `snyk wizard` answers will fix all the issues.
+In this application, the default `Snyk wizard` answers will fix all the issues.
 When the wizard is done, restart the application and run the exploits again to confirm they are fixed.
