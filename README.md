@@ -34,7 +34,7 @@ docker-compose up --build
 docker-compose down
 ```
 
-### Herokuusage
+### Heroku usage
 Goof requires attaching a MongoLab service to be deployed as a Heroku app. 
 That sets up the MONGOLAB_URI env var so everything after should just work. 
 
@@ -43,7 +43,7 @@ Goof requires attaching a MongoLab service and naming it "goof-mongo" to be depl
 The code explicitly looks for credentials to that service. 
 
 ### Clea up
-To bulk delete the current list of TODO items from the DB run:
+To bulk delete the current list of TODO items from the DB, run:
 ```bash
 npm run cleanup
 ```
